@@ -1,0 +1,133 @@
+kind: PersistentVolumeClaim
+
+apiVersion: v1
+
+metadata:
+
+  name: nfs-pvc
+
+  namespace: general
+
+  uid: a8a4de22-41d3-4f00-8914-6c66cacb96cb
+
+  resourceVersion: '2485239'
+
+  creationTimestamp: '2022-04-13T09:03:33Z'
+
+  labels:
+
+    app.kubernetes.io/managed-by: Helm
+
+  annotations:
+
+    meta.helm.sh/release-name: nfs-pod
+
+    meta.helm.sh/release-namespace: general
+
+    volume.beta.kubernetes.io/storage-provisioner: disk.csi.azure.com
+
+    volume.kubernetes.io/selected-node: aks-agentpool-29396314-vmss000001
+
+  finalizers:
+
+    - kubernetes.io/pvc-protection
+
+  managedFields:
+
+    - manager: helm
+
+      operation: Update
+
+      apiVersion: v1
+
+      time: '2022-04-13T09:03:33Z'
+
+      fieldsType: FieldsV1
+
+      fieldsV1:
+
+        f:metadata:
+
+          f:annotations:
+
+            .: {}
+
+            f:meta.helm.sh/release-name: {}
+
+            f:meta.helm.sh/release-namespace: {}
+
+          f:labels:
+
+            .: {}
+
+            f:app.kubernetes.io/managed-by: {}
+
+        f:spec:
+
+          f:accessModes: {}
+
+          f:resources:
+
+            f:requests:
+
+              .: {}
+
+              f:storage: {}
+
+          f:volumeMode: {}
+
+    - manager: kube-controller-manager
+
+      operation: Update
+
+      apiVersion: v1
+
+      time: '2022-04-13T09:03:34Z'
+
+      fieldsType: FieldsV1
+
+      fieldsV1:
+
+        f:metadata:
+
+          f:annotations:
+
+            f:volume.beta.kubernetes.io/storage-provisioner: {}
+
+    - manager: kube-scheduler
+
+      operation: Update
+
+      apiVersion: v1
+
+      time: '2022-04-13T09:03:34Z'
+
+      fieldsType: FieldsV1
+
+      fieldsV1:
+
+        f:metadata:
+
+          f:annotations:
+
+            f:volume.kubernetes.io/selected-node: {}
+
+spec:
+
+  accessModes:
+
+    - ReadWriteMany
+
+  resources:
+
+    requests:
+
+      storage: 1Gi
+
+  storageClassName: default
+
+  volumeMode: Filesystem
+
+status:
+
+  phase: Pending
